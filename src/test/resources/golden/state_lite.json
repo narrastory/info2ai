@@ -1,0 +1,129 @@
+{
+  "v": 1,
+  "seq": 10432,
+  "captured_at": 1762501234123,
+  "tick": 872311,
+  "detail": "lite",
+  "capabilities": {
+    "server_capture": true,
+    "client_capture": true,
+    "screenshot": true,
+    "static_world_available": true,
+    "static_world_ready": true,
+    "static_world_confidence": "high",
+    "history": true,
+    "chat_write": false,
+    "overlay_write": false,
+    "tts": false,
+    "paused": false
+  },
+  "session": {
+    "world_name": "New World",
+    "world_id": "info2ai-test-world",
+    "seed": "-9223372036854775808",
+    "game_mode": "survival",
+    "difficulty": "normal",
+    "paused": false
+  },
+  "world": {
+    "dimension": "minecraft:overworld",
+    "time": {
+      "day": 34,
+      "day_time": 7900,
+      "phase": "afternoon",
+      "clock": "13:54",
+      "moon_phase": 1,
+      "is_day": true
+    },
+    "weather": {
+      "rain": false,
+      "thunder": false,
+      "rain_level": 0.0,
+      "thunder_level": 0.0,
+      "seconds_since_weather_change": 1200
+    }
+  },
+  "player": {
+    "name": "ExamplePlayer",
+    "uuid": "00000000-0000-4000-8000-000000000001",
+    "pos": [
+      128.53,
+      64.0,
+      -302.21
+    ],
+    "facing": "NW",
+    "health": 12.0,
+    "max_health": 20.0,
+    "absorption": 0.0,
+    "food": 14,
+    "air": 300,
+    "xp_level": 22,
+    "screen": null,
+    "activity": {
+      "kind": "mining",
+      "confidence": 0.82,
+      "since_s": 320
+    },
+    "held": {
+      "id": "minecraft:iron_pickaxe",
+      "count": 1,
+      "damage": 108,
+      "damage_max": 250
+    },
+    "looking_at": {
+      "type": "block",
+      "id": "minecraft:chest",
+      "pos": [
+        130,
+        63,
+        -300
+      ],
+      "distance": 2.8
+    }
+  },
+  "inventory": {
+    "used": 4,
+    "free": 32,
+    "aggregate": {
+      "has_food": true,
+      "food_points": 30,
+      "low_tools": 0,
+      "torches": 43,
+      "has_light_source": true,
+      "bed": false
+    }
+  },
+  "surroundings": {
+    "biome": "minecraft:dark_forest",
+    "light": {
+      "block": 3,
+      "sky": 0,
+      "total": 3
+    },
+    "can_see_sky": false,
+    "cave_depth": 26,
+    "enclosed_ratio": 0.72,
+    "entity_counts": {
+      "hostile": 4,
+      "passive": 7,
+      "neutral": 2,
+      "projectile": 1,
+      "item": 6,
+      "other": 3
+    }
+  },
+  "signals": [
+    {
+      "kind": "low_light",
+      "severity": "warn",
+      "since_s": 60,
+      "detail": {}
+    }
+  ],
+  "projection": {
+    "profile": "compact_v1",
+    "signals_total": 1,
+    "budget_omitted": [],
+    "signals_omitted": 0
+  }
+}

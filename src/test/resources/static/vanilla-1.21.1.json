@@ -1,0 +1,1232 @@
+{
+  "source": "official-mapped-vanilla",
+  "mc": "1.21.1",
+  "dimension": "minecraft:overworld",
+  "generation": "minecraft:normal",
+  "extended_structures": [
+    {
+      "seed": "0",
+      "set": "igloos",
+      "id": "minecraft:igloo",
+      "dimension": "minecraft:overworld",
+      "x": 1568,
+      "z": 3072,
+      "chunk_x": 98,
+      "chunk_z": 192,
+      "valid_y": 134
+    },
+    {
+      "seed": "0",
+      "set": "ocean_ruins",
+      "id": "minecraft:ocean_ruin_cold",
+      "dimension": "minecraft:overworld",
+      "x": -256,
+      "z": -496,
+      "chunk_x": -16,
+      "chunk_z": -31,
+      "valid_y": 39
+    },
+    {
+      "seed": "0",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal",
+      "dimension": "minecraft:overworld",
+      "x": 320,
+      "z": 144,
+      "chunk_x": 20,
+      "chunk_z": 9,
+      "valid_y": 62
+    },
+    {
+      "seed": "0",
+      "set": "ancient_cities",
+      "id": "minecraft:ancient_city",
+      "dimension": "minecraft:overworld",
+      "x": 800,
+      "z": 1264,
+      "chunk_x": 50,
+      "chunk_z": 79,
+      "valid_y": -27
+    },
+    {
+      "seed": "0",
+      "set": "trial_chambers",
+      "id": "minecraft:trial_chambers",
+      "dimension": "minecraft:overworld",
+      "x": 224,
+      "z": 80,
+      "chunk_x": 14,
+      "chunk_z": 5,
+      "valid_y": -34
+    },
+    {
+      "seed": "0",
+      "set": "ocean_monuments",
+      "id": "minecraft:monument",
+      "dimension": "minecraft:overworld",
+      "x": -1136,
+      "z": -240,
+      "chunk_x": -71,
+      "chunk_z": -15,
+      "valid_y": 33
+    },
+    {
+      "seed": "0",
+      "set": "pillager_outposts",
+      "id": "minecraft:pillager_outpost",
+      "dimension": "minecraft:overworld",
+      "x": 576,
+      "z": 1648,
+      "chunk_x": 36,
+      "chunk_z": 103,
+      "valid_y": 71
+    },
+    {
+      "seed": "0",
+      "set": "jungle_temples",
+      "id": "minecraft:jungle_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 128,
+      "z": 1104,
+      "chunk_x": 8,
+      "chunk_z": 69,
+      "valid_y": 71
+    },
+    {
+      "seed": "0",
+      "set": "woodland_mansions",
+      "id": "minecraft:mansion",
+      "dimension": "minecraft:overworld",
+      "x": -3536,
+      "z": -832,
+      "chunk_x": -221,
+      "chunk_z": -52,
+      "valid_y": 63
+    },
+    {
+      "seed": "0",
+      "set": "strongholds",
+      "id": "minecraft:stronghold",
+      "dimension": "minecraft:overworld",
+      "x": -208,
+      "z": -1696,
+      "chunk_x": -13,
+      "chunk_z": -106,
+      "valid_y": 0
+    },
+    {
+      "seed": "1",
+      "set": "igloos",
+      "id": "minecraft:igloo",
+      "dimension": "minecraft:overworld",
+      "x": -144,
+      "z": -944,
+      "chunk_x": -9,
+      "chunk_z": -59,
+      "valid_y": 64
+    },
+    {
+      "seed": "1",
+      "set": "ocean_ruins",
+      "id": "minecraft:ocean_ruin_cold",
+      "dimension": "minecraft:overworld",
+      "x": -208,
+      "z": 16,
+      "chunk_x": -13,
+      "chunk_z": 1,
+      "valid_y": 38
+    },
+    {
+      "seed": "1",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal",
+      "dimension": "minecraft:overworld",
+      "x": 304,
+      "z": 288,
+      "chunk_x": 19,
+      "chunk_z": 18,
+      "valid_y": 68
+    },
+    {
+      "seed": "1",
+      "set": "ancient_cities",
+      "id": "minecraft:ancient_city",
+      "dimension": "minecraft:overworld",
+      "x": -1840,
+      "z": 1232,
+      "chunk_x": -115,
+      "chunk_z": 77,
+      "valid_y": -27
+    },
+    {
+      "seed": "1",
+      "set": "trial_chambers",
+      "id": "minecraft:trial_chambers",
+      "dimension": "minecraft:overworld",
+      "x": 224,
+      "z": -288,
+      "chunk_x": 14,
+      "chunk_z": -18,
+      "valid_y": -26
+    },
+    {
+      "seed": "1",
+      "set": "ocean_monuments",
+      "id": "minecraft:monument",
+      "dimension": "minecraft:overworld",
+      "x": 816,
+      "z": -272,
+      "chunk_x": 51,
+      "chunk_z": -17,
+      "valid_y": 37
+    },
+    {
+      "seed": "1",
+      "set": "pillager_outposts",
+      "id": "minecraft:pillager_outpost",
+      "dimension": "minecraft:overworld",
+      "x": -1904,
+      "z": -1328,
+      "chunk_x": -119,
+      "chunk_z": -83,
+      "valid_y": 119
+    },
+    {
+      "seed": "1",
+      "set": "jungle_temples",
+      "id": "minecraft:jungle_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 64,
+      "z": 1776,
+      "chunk_x": 4,
+      "chunk_z": 111,
+      "valid_y": 75
+    },
+    {
+      "seed": "1",
+      "set": "woodland_mansions",
+      "id": "minecraft:mansion",
+      "dimension": "minecraft:overworld",
+      "x": 1888,
+      "z": 240,
+      "chunk_x": 118,
+      "chunk_z": 15,
+      "valid_y": 80
+    },
+    {
+      "seed": "1",
+      "set": "strongholds",
+      "id": "minecraft:stronghold",
+      "dimension": "minecraft:overworld",
+      "x": -1136,
+      "z": 848,
+      "chunk_x": -71,
+      "chunk_z": 53,
+      "valid_y": 0
+    },
+    {
+      "seed": "-1",
+      "set": "igloos",
+      "id": "minecraft:igloo",
+      "dimension": "minecraft:overworld",
+      "x": 1344,
+      "z": 272,
+      "chunk_x": 84,
+      "chunk_z": 17,
+      "valid_y": 62
+    },
+    {
+      "seed": "-1",
+      "set": "ocean_ruins",
+      "id": "minecraft:ocean_ruin_cold",
+      "dimension": "minecraft:overworld",
+      "x": 0,
+      "z": 96,
+      "chunk_x": 0,
+      "chunk_z": 6,
+      "valid_y": 45
+    },
+    {
+      "seed": "-1",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_ocean",
+      "dimension": "minecraft:overworld",
+      "x": 320,
+      "z": 304,
+      "chunk_x": 20,
+      "chunk_z": 19,
+      "valid_y": 46
+    },
+    {
+      "seed": "-1",
+      "set": "ancient_cities",
+      "id": "minecraft:ancient_city",
+      "dimension": "minecraft:overworld",
+      "x": 928,
+      "z": 80,
+      "chunk_x": 58,
+      "chunk_z": 5,
+      "valid_y": -27
+    },
+    {
+      "seed": "-1",
+      "set": "trial_chambers",
+      "id": "minecraft:trial_chambers",
+      "dimension": "minecraft:overworld",
+      "x": 16,
+      "z": -224,
+      "chunk_x": 1,
+      "chunk_z": -14,
+      "valid_y": -21
+    },
+    {
+      "seed": "-1",
+      "set": "ocean_monuments",
+      "id": "minecraft:monument",
+      "dimension": "minecraft:overworld",
+      "x": 144,
+      "z": -432,
+      "chunk_x": 9,
+      "chunk_z": -27,
+      "valid_y": 37
+    },
+    {
+      "seed": "-1",
+      "set": "pillager_outposts",
+      "id": "minecraft:pillager_outpost",
+      "dimension": "minecraft:overworld",
+      "x": 1376,
+      "z": -784,
+      "chunk_x": 86,
+      "chunk_z": -49,
+      "valid_y": 71
+    },
+    {
+      "seed": "-1",
+      "set": "jungle_temples",
+      "id": "minecraft:jungle_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": -848,
+      "z": -1296,
+      "chunk_x": -53,
+      "chunk_z": -81,
+      "valid_y": 64
+    },
+    {
+      "seed": "-1",
+      "set": "woodland_mansions",
+      "id": "minecraft:mansion",
+      "dimension": "minecraft:overworld",
+      "x": 4144,
+      "z": -3328,
+      "chunk_x": 259,
+      "chunk_z": -208,
+      "valid_y": 67
+    },
+    {
+      "seed": "-1",
+      "set": "strongholds",
+      "id": "minecraft:stronghold",
+      "dimension": "minecraft:overworld",
+      "x": -176,
+      "z": 1408,
+      "chunk_x": -11,
+      "chunk_z": 88,
+      "valid_y": 0
+    },
+    {
+      "seed": "123456789",
+      "set": "igloos",
+      "id": "minecraft:igloo",
+      "dimension": "minecraft:overworld",
+      "x": 2768,
+      "z": -1200,
+      "chunk_x": 173,
+      "chunk_z": -75,
+      "valid_y": 63
+    },
+    {
+      "seed": "123456789",
+      "set": "ocean_ruins",
+      "id": "minecraft:ocean_ruin_cold",
+      "dimension": "minecraft:overworld",
+      "x": 16,
+      "z": -192,
+      "chunk_x": 1,
+      "chunk_z": -12,
+      "valid_y": 46
+    },
+    {
+      "seed": "123456789",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal",
+      "dimension": "minecraft:overworld",
+      "x": 384,
+      "z": 336,
+      "chunk_x": 24,
+      "chunk_z": 21,
+      "valid_y": -29
+    },
+    {
+      "seed": "123456789",
+      "set": "ancient_cities",
+      "id": "minecraft:ancient_city",
+      "dimension": "minecraft:overworld",
+      "x": -688,
+      "z": 432,
+      "chunk_x": -43,
+      "chunk_z": 27,
+      "valid_y": -27
+    },
+    {
+      "seed": "123456789",
+      "set": "trial_chambers",
+      "id": "minecraft:trial_chambers",
+      "dimension": "minecraft:overworld",
+      "x": 48,
+      "z": 208,
+      "chunk_x": 3,
+      "chunk_z": 13,
+      "valid_y": -20
+    },
+    {
+      "seed": "123456789",
+      "set": "ocean_monuments",
+      "id": "minecraft:monument",
+      "dimension": "minecraft:overworld",
+      "x": 1200,
+      "z": 0,
+      "chunk_x": 75,
+      "chunk_z": 0,
+      "valid_y": 41
+    },
+    {
+      "seed": "123456789",
+      "set": "pillager_outposts",
+      "id": "minecraft:pillager_outpost",
+      "dimension": "minecraft:overworld",
+      "x": 1280,
+      "z": -1744,
+      "chunk_x": 80,
+      "chunk_z": -109,
+      "valid_y": 65
+    },
+    {
+      "seed": "123456789",
+      "set": "jungle_temples",
+      "id": "minecraft:jungle_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": -1472,
+      "z": -1680,
+      "chunk_x": -92,
+      "chunk_z": -105,
+      "valid_y": 63
+    },
+    {
+      "seed": "123456789",
+      "set": "woodland_mansions",
+      "id": "minecraft:mansion",
+      "dimension": "minecraft:overworld",
+      "x": 1888,
+      "z": -368,
+      "chunk_x": 118,
+      "chunk_z": -23,
+      "valid_y": 67
+    },
+    {
+      "seed": "123456789",
+      "set": "strongholds",
+      "id": "minecraft:stronghold",
+      "dimension": "minecraft:overworld",
+      "x": -912,
+      "z": 1632,
+      "chunk_x": -57,
+      "chunk_z": 102,
+      "valid_y": 0
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "igloos",
+      "id": "minecraft:igloo",
+      "dimension": "minecraft:overworld",
+      "x": 1088,
+      "z": -1472,
+      "chunk_x": 68,
+      "chunk_z": -92,
+      "valid_y": 68
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "ocean_ruins",
+      "id": "minecraft:ocean_ruin_cold",
+      "dimension": "minecraft:overworld",
+      "x": -288,
+      "z": 640,
+      "chunk_x": -18,
+      "chunk_z": 40,
+      "valid_y": 49
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal",
+      "dimension": "minecraft:overworld",
+      "x": 320,
+      "z": 144,
+      "chunk_x": 20,
+      "chunk_z": 9,
+      "valid_y": 95
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "ancient_cities",
+      "id": "minecraft:ancient_city",
+      "dimension": "minecraft:overworld",
+      "x": -224,
+      "z": 192,
+      "chunk_x": -14,
+      "chunk_z": 12,
+      "valid_y": -27
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "trial_chambers",
+      "id": "minecraft:trial_chambers",
+      "dimension": "minecraft:overworld",
+      "x": 224,
+      "z": 80,
+      "chunk_x": 14,
+      "chunk_z": 5,
+      "valid_y": -34
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "ocean_monuments",
+      "id": "minecraft:monument",
+      "dimension": "minecraft:overworld",
+      "x": 848,
+      "z": 272,
+      "chunk_x": 53,
+      "chunk_z": 17,
+      "valid_y": 34
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "pillager_outposts",
+      "id": "minecraft:pillager_outpost",
+      "dimension": "minecraft:overworld",
+      "x": 2096,
+      "z": 336,
+      "chunk_x": 131,
+      "chunk_z": 21,
+      "valid_y": 80
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "jungle_temples",
+      "id": "minecraft:jungle_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 3424,
+      "z": 1776,
+      "chunk_x": 214,
+      "chunk_z": 111,
+      "valid_y": 78
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "woodland_mansions",
+      "id": "minecraft:mansion",
+      "dimension": "minecraft:overworld",
+      "x": -3536,
+      "z": -832,
+      "chunk_x": -221,
+      "chunk_z": -52,
+      "valid_y": 62
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "strongholds",
+      "id": "minecraft:stronghold",
+      "dimension": "minecraft:overworld",
+      "x": -160,
+      "z": -1776,
+      "chunk_x": -10,
+      "chunk_z": -111,
+      "valid_y": 0
+    },
+    {
+      "seed": "0",
+      "set": "fortress",
+      "id": "minecraft:fortress",
+      "dimension": "minecraft:the_nether",
+      "x": 240,
+      "z": 32,
+      "chunk_x": 15,
+      "chunk_z": 2,
+      "valid_y": 64
+    },
+    {
+      "seed": "0",
+      "set": "bastion_remnant",
+      "id": "minecraft:bastion_remnant",
+      "dimension": "minecraft:the_nether",
+      "x": 176,
+      "z": -224,
+      "chunk_x": 11,
+      "chunk_z": -14,
+      "valid_y": 33
+    },
+    {
+      "seed": "0",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_nether",
+      "dimension": "minecraft:the_nether",
+      "x": 320,
+      "z": 144,
+      "chunk_x": 20,
+      "chunk_z": 9,
+      "valid_y": 27
+    },
+    {
+      "seed": "1",
+      "set": "fortress",
+      "id": "minecraft:fortress",
+      "dimension": "minecraft:the_nether",
+      "x": -96,
+      "z": 144,
+      "chunk_x": -6,
+      "chunk_z": 9,
+      "valid_y": 64
+    },
+    {
+      "seed": "1",
+      "set": "bastion_remnant",
+      "id": "minecraft:bastion_remnant",
+      "dimension": "minecraft:the_nether",
+      "x": 192,
+      "z": 0,
+      "chunk_x": 12,
+      "chunk_z": 0,
+      "valid_y": 33
+    },
+    {
+      "seed": "1",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_nether",
+      "dimension": "minecraft:the_nether",
+      "x": 304,
+      "z": 288,
+      "chunk_x": 19,
+      "chunk_z": 18,
+      "valid_y": 66
+    },
+    {
+      "seed": "-1",
+      "set": "fortress",
+      "id": "minecraft:fortress",
+      "dimension": "minecraft:the_nether",
+      "x": 64,
+      "z": 288,
+      "chunk_x": 4,
+      "chunk_z": 18,
+      "valid_y": 64
+    },
+    {
+      "seed": "-1",
+      "set": "bastion_remnant",
+      "id": "minecraft:bastion_remnant",
+      "dimension": "minecraft:the_nether",
+      "x": 208,
+      "z": -192,
+      "chunk_x": 13,
+      "chunk_z": -12,
+      "valid_y": 33
+    },
+    {
+      "seed": "-1",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_nether",
+      "dimension": "minecraft:the_nether",
+      "x": 320,
+      "z": 304,
+      "chunk_x": 20,
+      "chunk_z": 19,
+      "valid_y": 55
+    },
+    {
+      "seed": "123456789",
+      "set": "fortress",
+      "id": "minecraft:fortress",
+      "dimension": "minecraft:the_nether",
+      "x": -160,
+      "z": -304,
+      "chunk_x": -10,
+      "chunk_z": -19,
+      "valid_y": 64
+    },
+    {
+      "seed": "123456789",
+      "set": "bastion_remnant",
+      "id": "minecraft:bastion_remnant",
+      "dimension": "minecraft:the_nether",
+      "x": 320,
+      "z": 16,
+      "chunk_x": 20,
+      "chunk_z": 1,
+      "valid_y": 33
+    },
+    {
+      "seed": "123456789",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_nether",
+      "dimension": "minecraft:the_nether",
+      "x": 384,
+      "z": 336,
+      "chunk_x": 24,
+      "chunk_z": 21,
+      "valid_y": 94
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "fortress",
+      "id": "minecraft:fortress",
+      "dimension": "minecraft:the_nether",
+      "x": 240,
+      "z": 32,
+      "chunk_x": 15,
+      "chunk_z": 2,
+      "valid_y": 64
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "bastion_remnant",
+      "id": "minecraft:bastion_remnant",
+      "dimension": "minecraft:the_nether",
+      "x": 176,
+      "z": -224,
+      "chunk_x": 11,
+      "chunk_z": -14,
+      "valid_y": 33
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "ruined_portals",
+      "id": "minecraft:ruined_portal_nether",
+      "dimension": "minecraft:the_nether",
+      "x": 320,
+      "z": 144,
+      "chunk_x": 20,
+      "chunk_z": 9,
+      "valid_y": 27
+    },
+    {
+      "seed": "0",
+      "set": "end_cities",
+      "id": "minecraft:end_city",
+      "dimension": "minecraft:the_end",
+      "x": -1216,
+      "z": -592,
+      "chunk_x": -76,
+      "chunk_z": -37,
+      "valid_y": 60
+    },
+    {
+      "seed": "1",
+      "set": "end_cities",
+      "id": "minecraft:end_city",
+      "dimension": "minecraft:the_end",
+      "x": -1168,
+      "z": -240,
+      "chunk_x": -73,
+      "chunk_z": -15,
+      "valid_y": 60
+    },
+    {
+      "seed": "-1",
+      "set": "end_cities",
+      "id": "minecraft:end_city",
+      "dimension": "minecraft:the_end",
+      "x": -1232,
+      "z": 80,
+      "chunk_x": -77,
+      "chunk_z": 5,
+      "valid_y": 60
+    },
+    {
+      "seed": "123456789",
+      "set": "end_cities",
+      "id": "minecraft:end_city",
+      "dimension": "minecraft:the_end",
+      "x": 688,
+      "z": -864,
+      "chunk_x": 43,
+      "chunk_z": -54,
+      "valid_y": 63
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "end_cities",
+      "id": "minecraft:end_city",
+      "dimension": "minecraft:the_end",
+      "x": -1216,
+      "z": -592,
+      "chunk_x": -76,
+      "chunk_z": -37,
+      "valid_y": 60
+    }
+  ],
+  "biomes": [
+    {
+      "seed": "0",
+      "x": 0,
+      "y": 64,
+      "z": 0,
+      "id": "minecraft:river"
+    },
+    {
+      "seed": "0",
+      "x": 123,
+      "y": -32,
+      "z": -456,
+      "id": "minecraft:ocean"
+    },
+    {
+      "seed": "1",
+      "x": -1043,
+      "y": 100,
+      "z": 2301,
+      "id": "minecraft:deep_lukewarm_ocean"
+    },
+    {
+      "seed": "1",
+      "x": -1,
+      "y": 63,
+      "z": -1,
+      "id": "minecraft:deep_ocean"
+    },
+    {
+      "seed": "-1",
+      "x": 3201,
+      "y": 80,
+      "z": -2210,
+      "id": "minecraft:old_growth_birch_forest"
+    },
+    {
+      "seed": "-1",
+      "x": 912,
+      "y": 20,
+      "z": 1044,
+      "id": "minecraft:snowy_plains"
+    },
+    {
+      "seed": "123456789",
+      "x": -3333,
+      "y": 120,
+      "z": -2222,
+      "id": "minecraft:badlands"
+    },
+    {
+      "seed": "123456789",
+      "x": 7,
+      "y": -60,
+      "z": 15,
+      "id": "minecraft:river"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "x": 88,
+      "y": 200,
+      "z": 99,
+      "id": "minecraft:meadow"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "x": 12345,
+      "y": 64,
+      "z": -9876,
+      "id": "minecraft:plains"
+    },
+    {
+      "seed": "0",
+      "dimension": "minecraft:the_nether",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:soul_sand_valley"
+    },
+    {
+      "seed": "0",
+      "dimension": "minecraft:the_nether",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "1",
+      "dimension": "minecraft:the_nether",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:basalt_deltas"
+    },
+    {
+      "seed": "1",
+      "dimension": "minecraft:the_nether",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "-1",
+      "dimension": "minecraft:the_nether",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "-1",
+      "dimension": "minecraft:the_nether",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "123456789",
+      "dimension": "minecraft:the_nether",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:crimson_forest"
+    },
+    {
+      "seed": "123456789",
+      "dimension": "minecraft:the_nether",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "dimension": "minecraft:the_nether",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:soul_sand_valley"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "dimension": "minecraft:the_nether",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:nether_wastes"
+    },
+    {
+      "seed": "0",
+      "dimension": "minecraft:the_end",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:the_end"
+    },
+    {
+      "seed": "0",
+      "dimension": "minecraft:the_end",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:end_midlands"
+    },
+    {
+      "seed": "1",
+      "dimension": "minecraft:the_end",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:the_end"
+    },
+    {
+      "seed": "1",
+      "dimension": "minecraft:the_end",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:end_midlands"
+    },
+    {
+      "seed": "-1",
+      "dimension": "minecraft:the_end",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:the_end"
+    },
+    {
+      "seed": "-1",
+      "dimension": "minecraft:the_end",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:end_midlands"
+    },
+    {
+      "seed": "123456789",
+      "dimension": "minecraft:the_end",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:the_end"
+    },
+    {
+      "seed": "123456789",
+      "dimension": "minecraft:the_end",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:end_midlands"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "dimension": "minecraft:the_end",
+      "x": 123,
+      "y": 32,
+      "z": -456,
+      "id": "minecraft:the_end"
+    },
+    {
+      "seed": "-9223372036854775808",
+      "dimension": "minecraft:the_end",
+      "x": -2048,
+      "y": 96,
+      "z": 4096,
+      "id": "minecraft:end_midlands"
+    }
+  ],
+  "structures": [
+    {
+      "seed": "0",
+      "set": "villages",
+      "id": "minecraft:village_savanna",
+      "dimension": "minecraft:overworld",
+      "x": 608,
+      "z": 720,
+      "chunk_x": 38,
+      "chunk_z": 45,
+      "valid_y": 73
+    },
+    {
+      "seed": "0",
+      "set": "desert_pyramids",
+      "id": "minecraft:desert_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 0,
+      "z": -3008,
+      "chunk_x": 0,
+      "chunk_z": -188,
+      "valid_y": 78
+    },
+    {
+      "seed": "0",
+      "set": "swamp_huts",
+      "id": "minecraft:swamp_hut",
+      "dimension": "minecraft:overworld",
+      "x": -1824,
+      "z": 304,
+      "chunk_x": -114,
+      "chunk_z": 19,
+      "valid_y": 68
+    },
+    {
+      "seed": "0",
+      "set": "shipwrecks",
+      "id": "minecraft:shipwreck_beached",
+      "dimension": "minecraft:overworld",
+      "x": 224,
+      "z": 128,
+      "chunk_x": 14,
+      "chunk_z": 8,
+      "valid_y": 62
+    },
+    {
+      "seed": "1",
+      "set": "villages",
+      "id": "minecraft:village_snowy",
+      "dimension": "minecraft:overworld",
+      "x": -240,
+      "z": -912,
+      "chunk_x": -15,
+      "chunk_z": -57,
+      "valid_y": 70
+    },
+    {
+      "seed": "1",
+      "set": "desert_pyramids",
+      "id": "minecraft:desert_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 272,
+      "z": 9552,
+      "chunk_x": 17,
+      "chunk_z": 597,
+      "valid_y": 73
+    },
+    {
+      "seed": "1",
+      "set": "swamp_huts",
+      "id": "minecraft:swamp_hut",
+      "dimension": "minecraft:overworld",
+      "x": 3184,
+      "z": 1888,
+      "chunk_x": 199,
+      "chunk_z": 118,
+      "valid_y": 62
+    },
+    {
+      "seed": "1",
+      "set": "shipwrecks",
+      "id": "minecraft:shipwreck",
+      "dimension": "minecraft:overworld",
+      "x": -288,
+      "z": 176,
+      "chunk_x": -18,
+      "chunk_z": 11,
+      "valid_y": 36
+    },
+    {
+      "seed": "-1",
+      "set": "villages",
+      "id": "minecraft:village_plains",
+      "dimension": "minecraft:overworld",
+      "x": 928,
+      "z": -768,
+      "chunk_x": 58,
+      "chunk_z": -48,
+      "valid_y": 63
+    },
+    {
+      "seed": "-1",
+      "set": "desert_pyramids",
+      "id": "minecraft:desert_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": -864,
+      "z": -496,
+      "chunk_x": -54,
+      "chunk_z": -31,
+      "valid_y": 64
+    },
+    {
+      "seed": "-1",
+      "set": "swamp_huts",
+      "id": "minecraft:swamp_hut",
+      "dimension": "minecraft:overworld",
+      "x": 1648,
+      "z": -2336,
+      "chunk_x": 103,
+      "chunk_z": -146,
+      "valid_y": 62
+    },
+    {
+      "seed": "-1",
+      "set": "shipwrecks",
+      "id": "minecraft:shipwreck",
+      "dimension": "minecraft:overworld",
+      "x": 128,
+      "z": 0,
+      "chunk_x": 8,
+      "chunk_z": 0,
+      "valid_y": 41
+    },
+    {
+      "seed": "123456789",
+      "set": "villages",
+      "id": "minecraft:village_plains",
+      "dimension": "minecraft:overworld",
+      "x": -272,
+      "z": 160,
+      "chunk_x": -17,
+      "chunk_z": 10,
+      "valid_y": 82
+    },
+    {
+      "seed": "123456789",
+      "set": "desert_pyramids",
+      "id": "minecraft:desert_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": -2704,
+      "z": -1696,
+      "chunk_x": -169,
+      "chunk_z": -106,
+      "valid_y": 79
+    },
+    {
+      "seed": "123456789",
+      "set": "swamp_huts",
+      "id": "minecraft:swamp_hut",
+      "dimension": "minecraft:overworld",
+      "x": 144,
+      "z": 1568,
+      "chunk_x": 9,
+      "chunk_z": 98,
+      "valid_y": 68
+    },
+    {
+      "seed": "123456789",
+      "set": "shipwrecks",
+      "id": "minecraft:shipwreck",
+      "dimension": "minecraft:overworld",
+      "x": 256,
+      "z": -768,
+      "chunk_x": 16,
+      "chunk_z": -48,
+      "valid_y": 46
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "villages",
+      "id": "minecraft:village_plains",
+      "dimension": "minecraft:overworld",
+      "x": -432,
+      "z": 16,
+      "chunk_x": -27,
+      "chunk_z": 1,
+      "valid_y": 103
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "desert_pyramids",
+      "id": "minecraft:desert_pyramid",
+      "dimension": "minecraft:overworld",
+      "x": 4672,
+      "z": 1536,
+      "chunk_x": 292,
+      "chunk_z": 96,
+      "valid_y": 77
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "swamp_huts",
+      "id": "minecraft:swamp_hut",
+      "dimension": "minecraft:overworld",
+      "x": -1360,
+      "z": -4944,
+      "chunk_x": -85,
+      "chunk_z": -309,
+      "valid_y": 62
+    },
+    {
+      "seed": "-9223372036854775808",
+      "set": "shipwrecks",
+      "id": "minecraft:shipwreck",
+      "dimension": "minecraft:overworld",
+      "x": -608,
+      "z": -560,
+      "chunk_x": -38,
+      "chunk_z": -35,
+      "valid_y": 35
+    }
+  ]
+}

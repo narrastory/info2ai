@@ -1,0 +1,24 @@
+{
+  "required": false,
+  "package": "com.example.info2ai.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "PlayerDamageMixin",
+    "ServerPlayNetworkHandlerAccessor",
+    "BlockItemMixin",
+    "BedItemMixin",
+    "LivingEntityDamageMixin",
+    "ServerPlayerFactsMixin",
+    "ItemStackCraftMixin",
+    "EnchantmentScreenHandlerMixin",
+    "PlayerAdvancementTrackerMixin",
+    "ServerWorldSleepMixin",
+    "NetherPortalMixin",
+    "AnimalEntityMixin",
+    "BlockDropsMixin",
+    "DirectorInteractionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

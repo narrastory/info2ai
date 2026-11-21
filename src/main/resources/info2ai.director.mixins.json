@@ -1,0 +1,18 @@
+{
+  "required": false,
+  "package": "com.example.info2ai.mixin.director",
+  "plugin": "com.example.info2ai.director.guard.GuardMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "DirectorWorldMixin",
+    "DirectorServerWorldMixin",
+    "DirectorEntityMixin",
+    "DirectorLivingEntityMixin",
+    "DirectorArmorStandMixin",
+    "DirectorCloneMixin",
+    "DirectorFillMixin",
+    "DirectorSetBlockMixin",
+    "DirectorBlockDataMixin",
+    "DirectorItemEntityMixin"
+  ]
+}

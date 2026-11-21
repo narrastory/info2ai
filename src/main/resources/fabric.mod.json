@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "info2ai",
+  "version": "${version}",
+  "name": "info2ai",
+  "description": "Connects a local AI companion to your Minecraft single-player world.",
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.example.info2ai.Info2AiMod"
+    ],
+    "client": [
+      "com.example.info2ai.Info2AiClient"
+    ]
+  },
+  "mixins": ["info2ai.mixins.json", "info2ai.director.mixins.json", {"config":"info2ai.client.mixins.json","environment":"client"}],
+  "depends": {
+    "fabricloader": ">=0.20.1",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

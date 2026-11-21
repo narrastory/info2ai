@@ -1,0 +1,202 @@
+{
+  "artifact": "fabric-api:0.116.17+1.21.1",
+  "sha256": "79ac44b40780acbd884b34c50be1e39af682847e5f5cb3b1fddeeaa768dce800",
+  "modules": [
+    {
+      "id": "fabric-api-base",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-api-lookup-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-biome-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-block-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-block-view-api-v2",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-blockrenderlayer-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-client-tags-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-command-api-v2",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-content-registries-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-convention-tags-v2",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-crash-report-info-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-data-attachment-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-data-generation-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-dimensions-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-entity-events-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-events-interaction-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-game-rule-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-item-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-item-group-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-key-binding-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-lifecycle-events-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-loot-api-v3",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-message-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-model-loading-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-networking-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-object-builder-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-particles-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-recipe-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-registry-sync-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-renderer-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-renderer-indigo",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-rendering-fluids-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-rendering-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-resource-conditions-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-resource-loader-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-screen-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-screen-handler-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-sound-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-tag-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-transfer-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-transitive-access-wideners-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-command-api-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-commands-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-convention-tags-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-keybindings-v0",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-loot-api-v2",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-renderer-registries-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-rendering-data-attachment-v1",
+      "parent": "fabric-api"
+    },
+    {
+      "id": "fabric-rendering-v0",
+      "parent": "fabric-api"
+    }
+  ]
+}

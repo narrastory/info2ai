@@ -1,0 +1,112 @@
+plugins {
+    id 'fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        info2ai {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    testImplementation 'junit:junit:4.13.2'
+}
+
+processResources {
+    inputs.property 'version', project.version
+
+    filesMatching('fabric.mod.json') {
+        expand 'version': project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+// Plain JUnit does not run Fabric Loader's package-access transformer on mapped Minecraft.
+sourceSets.create('testAccessRepair')
+dependencies {
+    testAccessRepairImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    testAccessRepairImplementation 'org.ow2.asm:asm:9.7.1'
+}
+def mappedCommonJar = providers.provider {
+    sourceSets.main.compileClasspath.files.find { it.name.startsWith('minecraft-common-') && it.name.endsWith('.jar') }
+}
+def repairedCommonJar = layout.buildDirectory.file('test-minecraft/minecraft-common.jar')
+def repairTestMinecraft = tasks.register('repairTestMinecraft', JavaExec) {
+    classpath = sourceSets.testAccessRepair.runtimeClasspath
+    mainClass = 'com.example.info2ai.testing.PackageAccessRepair'
+    inputs.file(mappedCommonJar)
+    outputs.file(repairedCommonJar)
+    doFirst {
+        args mappedCommonJar.get().absolutePath, repairedCommonJar.get().asFile.absolutePath
+    }
+}
+tasks.named('test', Test) {
+    dependsOn repairTestMinecraft
+    classpath = files(repairedCommonJar) + sourceSets.test.runtimeClasspath.filter { it != mappedCommonJar.get() }
+    def gameAssets = tasks.named('downloadAssets')
+    dependsOn gameAssets
+    doFirst {
+        systemProperty 'info2ai.testAssetsDirectory', gameAssets.get().assetsDirectory.get().asFile.absolutePath
+        systemProperty 'info2ai.testAssetsIndex', loom.minecraftProvider.versionInfo.assetIndex().fabricId(project.minecraft_version)
+    }
+}
+
+def standaloneClasspath = files(sourceSets.main.output, sourceSets.main.runtimeClasspath.filter {
+    it.name.startsWith('gson-') || it.name.startsWith('slf4j-api-') || it.name.startsWith('log4j-')
+})
+
+tasks.register('runMock', JavaExec) {
+    group = 'application'
+    description = '启动不依赖游戏窗口的 info2ai Mock HTTP 服务'
+    classpath = standaloneClasspath
+    mainClass = 'com.example.info2ai.http.MockMain'
+    systemProperty 'info2ai.configDir', providers.systemProperty('info2ai.configDir').getOrElse('run/mock/config')
+}
+
+tasks.register('runReplay', JavaExec) {
+    group = 'application'
+    description = '启动纯 JVM 录制回放 HTTP 服务'
+    classpath = standaloneClasspath
+    mainClass = 'com.example.info2ai.http.ReplayMain'
+    systemProperty 'info2ai.configDir', providers.systemProperty('info2ai.configDir').getOrElse('run/replay/config')
+}
+
+tasks.withType(JavaExec).configureEach {
+    ['info2ai.record', 'info2ai.replay'].each { key ->
+        if (System.getProperty(key) != null) systemProperty key, System.getProperty(key)
+    }
+}
+loom.runs.configureEach {
+    ['info2ai.mock', 'info2ai.record', 'info2ai.replay', 'info2ai.debug'].each { key ->
+        if (System.getProperty(key) != null) vmArg "-D${key}=${System.getProperty(key)}"
+    }
+}
+
+tasks.withType(Test).configureEach {
+    systemProperty 'info2ai.testRuntimeClasspath', standaloneClasspath.asPath
+}

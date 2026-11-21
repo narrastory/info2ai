@@ -1,0 +1,20 @@
+{
+  "required": false,
+  "package": "com.example.info2ai.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "InGameHudAccessor",
+    "BossBarHudAccessor",
+    "InGameHudMixin",
+    "AdvancementToastAccessor",
+    "SystemToastAccessor",
+    "ToastManagerMixin",
+    "SoundSystemMixin",
+    "WorldRendererMixin",
+    "KeyboardInputMixin",
+    "MouseInputMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

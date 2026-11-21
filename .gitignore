@@ -1,0 +1,33 @@
+# Gradle and build output
+.gradle/
+build/
+out/
+bin/
+
+# IDE local state
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/settings.json
+
+# Development game instances
+run/
+runClient/
+runServer/
+
+# Local files and credentials
+.env
+.env.*
+!.env.example
+*.log
+hs_err_pid*
+.DS_Store
+Thumbs.db
+/config/
+/logs/
+*.token
+node_modules/
+dist/
+.superpowers/

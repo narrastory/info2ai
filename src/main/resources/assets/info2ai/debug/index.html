@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>info2ai · 状态</title>
+<style>
+  :root { --bg:#14161a; --panel:#1c1f25; --line:#2a2e36; --text:#e6e6e6; --dim:#8b919c; --ok:#6cc58a; --warn:#e3b45b; --bad:#e46a5f; --accent:#7fb2e6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.5 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; }
+  header { display:flex; align-items:center; gap:16px; padding:14px 24px; border-bottom:1px solid var(--line); }
+  header h1 { font-size:16px; font-weight:600; margin:0; }
+  .dot { width:9px; height:9px; border-radius:50%; background:var(--dim); display:inline-block; margin-right:6px; }
+  .dot.ok { background:var(--ok); } .dot.warn { background:var(--warn); } .dot.bad { background:var(--bad); }
+  .spacer { flex:1; }
+  button { background:transparent; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:5px 12px; font:inherit; cursor:pointer; }
+  button:hover:not(:disabled) { border-color:var(--accent); }
+  button:disabled { color:var(--dim); cursor:default; opacity:.6; }
+  main { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px; padding:20px 24px; }
+  section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:14px 16px; }
+  section h2 { font-size:12px; font-weight:600; letter-spacing:.06em; color:var(--dim); margin:0 0 10px; text-transform:uppercase; }
+  dl { display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:0; }
+  dt { color:var(--dim); } dd { margin:0; font-variant-numeric:tabular-nums; text-align:right; }
+  .wide { grid-column:1 / -1; }
+  ol { list-style:none; margin:0; padding:0; max-height:420px; overflow:auto; font-size:13px; }
+  li { display:grid; grid-template-columns:72px 64px 1fr; gap:10px; padding:4px 0; border-bottom:1px solid var(--line); }
+  li .t, li .s { color:var(--dim); font-variant-numeric:tabular-nums; }
+  li.warn .k { color:var(--warn); } li.critical .k { color:var(--bad); }
+  .warns { color:var(--warn); font-size:13px; margin-top:8px; white-space:pre-wrap; }
+  #login { max-width:420px; margin:12vh auto; padding:24px; }
+  #login input { width:100%; margin:12px 0; padding:8px 10px; background:var(--bg); color:var(--text); border:1px solid var(--line); border-radius:6px; font:inherit; }
+  .muted { color:var(--dim); font-size:13px; }
+</style>
+</head>
+<body>
+<section id="login" hidden>
+  <h2>info2ai 状态页</h2>
+  <p class="muted">需要本机令牌。令牌在游戏目录的 <code>config/info2ai.token</code>。令牌只保存在本标签页里。</p>
+  <input id="token" type="password" autocomplete="off" placeholder="粘贴令牌">
+  <button id="enter">进入</button>
+  <p id="loginError" class="muted"></p>
+</section>
+<div id="app" hidden>
+  <header>
+    <h1><span id="statusDot" class="dot"></span>info2ai</h1>
+    <span id="headline" class="muted"></span>
+    <span class="spacer"></span>
+    <button id="pause">暂停导出</button>
+    <button id="director">关闭导演</button>
+  </header>
+  <main>
+    <section><h2>服务</h2><dl id="service"></dl><div id="warnings" class="warns"></div></section>
+    <section><h2>采集耗时（毫秒，最近 300 次）</h2><dl id="perf"></dl></section>
+    <section><h2>能力</h2><dl id="caps"></dl></section>
+    <section><h2>静态世界与导演</h2><dl id="extras"></dl></section>
+    <section class="wide"><h2>最近 50 条事件</h2><ol id="events"></ol></section>
+  </main>
+</div>
+<script>
+(() => {
+  const KEY = "info2ai.token";
+  const $ = (id) => document.getElementById(id);
+  let token = sessionStorage.getItem(KEY) || "";
+  const hash = new URLSearchParams(location.hash.slice(1)).get("token");
+  if (hash) { token = hash; sessionStorage.setItem(KEY, token); history.replaceState(null, "", location.pathname); }
+
+  let cursor = null, events = [], paused = false, directorOn = true;
+
+  async function api(path, body) {
+    const init = { headers: { Authorization: "Bearer " + token } };
+    if (body !== undefined) { init.method = "POST"; init.headers["Content-Type"] = "application/json"; init.body = JSON.stringify(body); }
+    const res = await fetch(path, init);
+    if (res.status === 401) { throw new Error("unauthorized"); }
+    const text = await res.text();
+    try { return { status: res.status, body: JSON.parse(text) }; } catch { return { status: res.status, body: {} }; }
+  }
+
+  function rows(el, pairs) {
+    el.replaceChildren(...pairs.flatMap(([k, v]) => {
+      const dt = document.createElement("dt"); dt.textContent = k;
+      const dd = document.createElement("dd"); dd.textContent = v ?? "—";
+      return [dt, dd];
+    }));
+  }
+  const ms = (s) => s && s.samples ? `${s.avg_ms.toFixed(2)} / ${s.max_ms.toFixed(1)}` : "—";
+  const yes = (v) => v === true ? "是" : v === false ? "否" : "—";
+  const time = (t) => t ? new Date(t).toLocaleTimeString("zh-CN", { hour12: false }) : "";
+
+  function renderEvents() {
+    const list = $("events");
+    list.replaceChildren(...events.slice(-50).reverse().map((e) => {
+      const li = document.createElement("li"); li.className = e.severity || "";
+      const t = document.createElement("span"); t.className = "t"; t.textContent = time(e.t);
+      const s = document.createElement("span"); s.className = "s"; s.textContent = "#" + e.seq;
+      const k = document.createElement("span"); k.className = "k"; k.textContent = e.text ? `${e.text}（${e.kind}）` : e.kind;
+      li.append(t, s, k); return li;
+    }));
+    if (!events.length) { const li = document.createElement("li"); li.textContent = "还没有事件"; list.append(li); }
+  }
+
+  async function loadEvents() {
+    if (cursor === null) {
+      const page = await api("/events/history?limit=2048");
+      events = (page.body.events || []).slice(-50);
+      cursor = page.body.next_since ?? 0;
+    } else {
+      const page = await api(`/events?since=${cursor}&wait_ms=0&limit=256`);
+      if (page.status === 409) { cursor = null; return loadEvents(); }
+      events = events.concat(page.body.events || []).slice(-50);
+      if (typeof page.body.next_since === "number") cursor = page.body.next_since;
+    }
+    renderEvents();
+  }
+
+  async function refresh() {
+    const [health, perf, director] = await Promise.all([api("/health"), api("/debug/perf"), api("/director/status")]);
+    const h = health.body, p = perf.body, d = director.body || {};
+    const caps = h.capabilities || {};
+    paused = !!caps.paused; directorOn = !!d.enabled;
+    const warnings = h.warnings || [];
+    $("statusDot").className = "dot " + (!h.in_world ? "" : (h.degraded || paused) ? "warn" : "ok");
+    $("headline").textContent = !h.in_world ? "未进入世界" : paused ? "已暂停导出" : "运行中";
+    $("pause").textContent = paused ? "恢复导出" : "暂停导出";
+    $("director").textContent = director.status !== 200 ? "导演不可用" : directorOn ? "关闭导演" : "开启导演";
+    $("director").disabled = director.status !== 200;
+    rows($("service"), [
+      ["端口", h.port], ["版本", h.mod_version], ["seq", h.seq], ["运行", `${h.uptime_s ?? 0} 秒`],
+      ["在世界中", yes(h.in_world)], ["来源", h.mock ? "Mock" : h.replay ? "回放" : "游戏"],
+      ["降级", yes(h.degraded)], ["实例", (h.instance_id || "").slice(0, 12)],
+    ]);
+    $("warnings").textContent = warnings.length ? "警告：\n" + warnings.join("\n") : "";
+    rows($("perf"), [
+      ["服务端采集 平均 / 最大", ms(p.capture)], ["客户端采集", ms(p.client_capture)],
+      ["事件引擎", ms(p.event_engine)], ["信号引擎", ms(p.signal_engine)], ["截图", ms(p.screenshot)],
+      ["快照年龄", p.snapshot_age_ms >= 0 ? `${p.snapshot_age_ms} 毫秒` : "—"],
+      ["事件环 / 丢弃", p.events ? `${p.events.ring_size} / ${p.events.dropped}` : "—"],
+      ["HTTP 请求 / 等待者 / 错误", p.http ? `${p.http.requests} / ${p.http.waiters} / ${p.http.errors}` : "—"],
+    ]);
+    rows($("caps"), Object.entries(caps).filter(([, v]) => typeof v === "boolean").map(([k, v]) => [k, yes(v)]));
+    const s = h.static_source || {};
+    rows($("extras"), [
+      ["静态世界", s.available === undefined ? "未配置" : s.available ? "可用" : `不可用（失败 ${s.failures ?? 0} 次）`],
+      ["静态世界就绪", yes(caps.static_world_ready)],
+      ["导演", director.status === 200 ? (d.enabled ? "开" : "关") : "—"],
+      ["本分钟剩余", d.rate ? d.rate.remaining : "—"],
+      ["伙伴实体", d.active_entities ?? "—"], ["标记", d.markers ?? "—"],
+    ]);
+  }
+
+  async function tick() {
+    try { await Promise.all([refresh(), loadEvents()]); }
+    catch (e) { if (e.message === "unauthorized") { showLogin("令牌不正确。"); return; } }
+    setTimeout(tick, 2000);
+  }
+
+  function showLogin(message) {
+    sessionStorage.removeItem(KEY); token = "";
+    $("app").hidden = true; $("login").hidden = false; $("loginError").textContent = message || "";
+  }
+
+  $("enter").onclick = () => { token = $("token").value.trim(); sessionStorage.setItem(KEY, token); start(); };
+  $("token").onkeydown = (e) => { if (e.key === "Enter") $("enter").click(); };
+  $("pause").onclick = async () => { await api("/control", { pause_export: !paused }); refresh(); };
+  $("director").onclick = async () => { await api("/control", { director_enabled: !directorOn }); refresh(); };
+
+  function start() { $("login").hidden = true; $("app").hidden = false; cursor = null; tick(); }
+  if (token) start(); else showLogin();
+})();
+</script>
+</body>
