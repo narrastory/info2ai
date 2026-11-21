@@ -2,11 +2,9 @@
 
 [简体中文](README.zh-CN.md)
 
-info2ai is a Fabric mod that lets other programs read live data from a Minecraft Java Edition single-player world. A dashboard can show your coordinates and health, a tracker can record what you craft and find, and a screenshot tool can save the current game view. The mod serves data over HTTP on the same computer.
+info2ai is a Minecraft Fabric mod that lets other programs read live data from a Minecraft Java Edition single-player world. It provides the data over a local HTTP interface.
 
-An AI agent can use the same snapshots, events, and screenshots to follow what you do in the game. When the Director is enabled, the agent can use `POST /director/run` to interact within the mod's limits, for example by placing blocks or playing sounds. Press **F8** to toggle the Director.
-
-Try the sound example to check and run your first command. [Send a command to the game](tutorials/receiving-data.md#5-send-a-command-to-the-game).
+You can also let an AI agent read these snapshots, events, and screenshots to understand what you're doing in the game. When the Director is enabled, the agent can run commands in your world through `POST /director/run`. This lets it interact directly with your world and play alongside you.
 
 ## What you can read
 
