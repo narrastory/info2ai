@@ -6,6 +6,8 @@ info2ai is a Fabric mod that lets other programs read live data from a Minecraft
 
 An AI agent can use the same snapshots, events, and screenshots to follow what you do in the game. When the Director is enabled, the agent can use `POST /director/run` to interact within the mod's limits, for example by placing blocks or playing sounds. Press **F8** to toggle the Director.
 
+Try the sound example to check and run your first command. [Send a command to the game](tutorials/receiving-data.md#5-send-a-command-to-the-game).
+
 ## What you can read
 
 | Data | Examples |

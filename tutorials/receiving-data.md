@@ -1,8 +1,8 @@
-# Receiving game data from info2ai
+# Read game data and send commands with info2ai
 
 [简体中文](receiving-data.zh-CN.md)
 
-This guide connects a local program to the game. Use `/state` to see what is true now, `/events` to see what just happened, and `/screenshot` for the current image.
+This guide connects a local program to the game. Use `/state` to see what is true now, `/events` to see what just happened, and `/screenshot` for the current image. Use the Director to [send a command to the game](#5-send-a-command-to-the-game).
 
 ## 1. Connect to the game
 
@@ -86,6 +86,60 @@ curl -fsS -H "Authorization: Bearer $TOKEN" \
 ```
 
 Screenshots require an active game client. Use the returned `X-Info2ai-Seq` and `X-Info2ai-RealTime` headers if you need to associate the image with a snapshot and its capture time. The image is requested separately, so check those headers if timing matters.
+
+## 5. Send a command to the game
+
+Enter a single-player world and leave the game unpaused. Press **F8** if you need to turn the Director on. With the same Bearer token from section 1, call `GET /director/status` and check that `enabled` and `available` are both `true`.
+
+Send one Minecraft command as the `command` string in a JSON request. A leading `/` is optional. Start with `POST /director/check`, which checks the command without running it. After it returns `status: "ok"`, send the same command to `POST /director/run` with an `intent` describing why you are running it. The intent must be non-blank and at most 120 characters. The examples play a chime for the player.
+
+### PowerShell
+
+```powershell
+Invoke-RestMethod "$base/director/status" -Headers $headers
+$command = 'playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2'
+$checked = Invoke-RestMethod "$base/director/check" -Method Post -Headers $headers `
+  -ContentType 'application/json; charset=utf-8' -Body (@{ command = $command } | ConvertTo-Json -Compress)
+$checked
+
+if ($checked.status -eq 'ok') {
+    Invoke-RestMethod "$base/director/run" -Method Post -Headers $headers `
+      -ContentType 'application/json; charset=utf-8' `
+      -Body (@{ command = $command; intent = 'Play a test chime' } | ConvertTo-Json -Compress)
+}
+```
+
+### curl
+
+```sh
+curl -fsS -H "Authorization: Bearer $TOKEN" "$BASE/director/status"
+curl -fsS -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  --data '{"command":"playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2"}' \
+  "$BASE/director/check"
+```
+
+Once the check returns `status: "ok"`, run it with an intent.
+
+```sh
+curl -fsS -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  --data '{"command":"playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2","intent":"Play a test chime"}' \
+  "$BASE/director/run"
+```
+
+### Read the result
+
+Inspect `status` and `success` in the JSON. A successful request to play the chime returns `status: "executed"` and `success: true`. HTTP `200` can also carry a rejected or failed command.
+
+| Result | What to check |
+| --- | --- |
+| `parse_error` | Read `parse_error.message` and fix the command syntax. |
+| `rejected` | Read `policy.reason` and adjust the command to fit the mod's rules. |
+| `failed` or `rolled_back` | Check `errors` and `guard.violations` for details. |
+| `timeout` | Check `GET /director/actions` before retrying. A submitted command can still finish after the HTTP timeout. |
+| `403 director_disabled` or `409 game_paused` | Enable the Director with **F8**, or return to the game from the pause menu. |
+| `429 rate_limited` | Wait for the number of seconds in `reset_in_s`. |
+
+For supported commands and examples, request `GET /director/help` or `GET /director/help?command=playsound` with the token. If a run reports `undoable: true`, send `POST /director/undo` with `{"action_id": 42}`, replacing `42` with the ID returned by the run. This requests an undo of the recorded changes.
 
 ## Troubleshooting
 

@@ -1,8 +1,8 @@
-# 接收 info2ai 的游戏数据
+# 用 info2ai 读取游戏数据和发送指令
 
 [English](receiving-data.md)
 
-本教程说明如何让本机程序接收数据。用 `/state` 了解现在的状态，用 `/events` 接收刚发生的事件，用 `/screenshot` 获取游戏画面。
+本教程说明如何让本机程序读取数据并与游戏交互。用 `/state` 了解现在的状态，用 `/events` 接收刚发生的事件，用 `/screenshot` 获取游戏画面。通过导演功能可以[向游戏发送指令](#5-向游戏发送指令)。
 
 ## 1. 连接到游戏
 
@@ -86,6 +86,60 @@ curl -fsS -H "Authorization: Bearer $TOKEN" \
 ```
 
 截图需要正在运行的游戏客户端。如果需要将截图与快照或采集时间关联，可以读取 `X-Info2ai-Seq` 和 `X-Info2ai-RealTime` 响应头。截图是单独请求的，对时序有要求时以响应头为准。
+
+## 5. 向游戏发送指令
+
+进入单人存档，保持游戏处于运行状态。需要开启导演时，按 **F8**。用第 1 节的 Bearer 令牌请求 `GET /director/status`，确认 `enabled` 和 `available` 都是 `true`。
+
+在 JSON 请求体的 `command` 字段写一条 Minecraft 指令，开头的 `/` 可以省略。先用 `POST /director/check` 检查指令，这一步不会执行指令。返回 `status: "ok"` 后，再用 `POST /director/run` 发送同一条指令，并在 `intent` 里说明用途。用途不能为空，最多 120 个字符。下面用给玩家播放一声提示音来测试。
+
+### PowerShell
+
+```powershell
+Invoke-RestMethod "$base/director/status" -Headers $headers
+$command = 'playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2'
+$checked = Invoke-RestMethod "$base/director/check" -Method Post -Headers $headers `
+  -ContentType 'application/json; charset=utf-8' -Body (@{ command = $command } | ConvertTo-Json -Compress)
+$checked
+
+if ($checked.status -eq 'ok') {
+    Invoke-RestMethod "$base/director/run" -Method Post -Headers $headers `
+      -ContentType 'application/json; charset=utf-8' `
+      -Body (@{ command = $command; intent = '播放一声测试提示音' } | ConvertTo-Json -Compress)
+}
+```
+
+### curl
+
+```sh
+curl -fsS -H "Authorization: Bearer $TOKEN" "$BASE/director/status"
+curl -fsS -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  --data '{"command":"playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2"}' \
+  "$BASE/director/check"
+```
+
+检查返回 `status: "ok"` 后，带上用途执行。
+
+```sh
+curl -fsS -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' \
+  --data '{"command":"playsound minecraft:block.note_block.chime record @p ~ ~ ~ 1 1.2","intent":"播放一声测试提示音"}' \
+  "$BASE/director/run"
+```
+
+### 查看执行结果
+
+看 JSON 响应里的 `status` 和 `success`。如果提示音播放成功，响应为 `status: "executed"`、`success: true`。HTTP `200` 也可能返回指令被拒绝或执行失败的状态。
+
+| 结果 | 检查方法 |
+| --- | --- |
+| `parse_error` | 看 `parse_error.message`，修正指令语法。 |
+| `rejected` | 看 `policy.reason`，按模组的限制调整指令。 |
+| `failed` 或 `rolled_back` | 查看 `errors` 和 `guard.violations`。 |
+| `timeout` | 重试前先看 `GET /director/actions`。已经提交的指令可能在 HTTP 超时后继续完成。 |
+| `403 director_disabled` 或 `409 game_paused` | 按 **F8** 开启导演，或从暂停菜单回到游戏。 |
+| `429 rate_limited` | 等待 `reset_in_s` 指定的秒数。 |
+
+带令牌请求 `GET /director/help` 或 `GET /director/help?command=playsound`，可以查看支持的指令和示例。如果执行结果有 `undoable: true`，可以向 `POST /director/undo` 发送 `{"action_id": 42}`，把 `42` 换成响应中的指令 ID，即可请求撤销有记录的改动。
 
 ## 常见问题
 
