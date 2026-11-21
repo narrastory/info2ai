@@ -3,7 +3,7 @@
   "id": "info2ai",
   "version": "${version}",
   "name": "info2ai",
-  "description": "Connects a local AI companion to your Minecraft single-player world.",
+  "description": "Exports live data from a Minecraft single-player world over a local HTTP interface.",
   "license": "All-Rights-Reserved",
   "environment": "*",
   "entrypoints": {
